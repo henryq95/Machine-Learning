@@ -1,0 +1,18 @@
+#!/bin/bash
+# convert .au to .wav recursively
+# By Glen Hewlett
+#####################################
+
+if [ -z $1 ];then echo Give target directory; exit 0;fi
+
+find "$1" -depth -name '*' | while read file ; do
+directory=$(dirname "$file")
+oldfilename=$(basename "$file")
+newfilename=$(basename "${file%.[Aa][Uu]}")
+
+if [ "$oldfilename" != "$newfilename" ]; then
+ffmpeg -i "$directory/$oldfilename" -ab 320k "$directory/$newfilename.wav" </dev/null
+rm "$directory/$oldfilename"
+fi
+
+done

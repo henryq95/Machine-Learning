@@ -1,0 +1,25 @@
+#!/bin/bash
+# convert .au to .wav recursively
+# also convert .flac or .acc to .wav recursively
+# By Glen Hewlett
+#####################################
+
+if [ -z $1 ];then echo Give target directory; exit 0;fi
+
+find "$1" -depth -name '*' | while read file ; do
+directory=$(dirname "$file")
+oldfilename=$(basename "$file")
+newfilenameAu=$(basename "${file%.[Aa][Uu]}")
+newfilenameFlacAcc=$(basename "${file%.[Ff][Ll][Aa][Cc]}")
+
+if [ "$oldfilename" != "$newfilenameAu" ]; then
+ffmpeg -i "$directory/$oldfilename" -ab 320k "$directory/$newfilenameAu.wav" </dev/null
+rm "$directory/$oldfilename"
+fi
+
+if [ "$oldfilename" != "$newfilenameFlacAcc" ]; then
+ffmpeg -i "$directory/$oldfilename" -ab 320k "$directory/$newfilenameFlacAcc.wav" </dev/null
+rm "$directory/$oldfilename"
+fi
+
+done

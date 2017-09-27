@@ -1,0 +1,25 @@
+_id 		DEFAULT UNIQUE KEY
+username    STRING REQUIRED
+password	STRING REQUIRED
+confirmed	BOOLEAN
+token		STRING
+created		DATE
+updated		DATE
+
+UNIQUE
+_id
+username
+
+
+_id			DEFAULT UNIQUE KEY
+playlist	STRING REQUIRED
+completed	BOOLEAN
+userid		STRING
+created		DATE
+updated		DATE
+
+UNIQUE
+_id
+TEXT
+playlist
+
