@@ -10,7 +10,8 @@ PATH = 'C:/Users/Henry/Documents/AxonRadioMiscStorage/genres/**/*.wav'
 GENRE_DIR = "C:/Users/Henry/Documents/AxonRadioMiscStorage/genres/"
 
 #blow is an enumerate list which is used to label the genres in our dataset folder, blues = 0, classical = 1, .., rock = 9
-GENRE_LIST = ["blues", "classical", "country", "disco", "hiphop", "jazz", "metal", "pop", "reggae", "rock"]
+#GENRE_LIST = ["blues", "classical", "country", "disco", "hiphop", "jazz", "metal", "pop", "reggae", "rock"]
+GENRE_LIST = ["classical", "jazz", "country", "pop", "rock", "metal"]
 
 def write_ceps(ceps, fname):
     """
