@@ -42,7 +42,7 @@ def read_ceps(genre_list, base_dir=GENRE_DIR):
 
     return np.array(X), np.array(y)
 
-def create_ceps_blob(path):
+def create_ceps_glob(path):
     """creates MFCC files for all .wav files in a glob.glob directory parameter.
     \nExample: 'example/\\*\\*/\\*.wav' goes through all folders in example using \\*\\*
      and grabs every .wav in those folders"""
@@ -54,3 +54,5 @@ def create_ceps_blob(path):
 
 #uncomment below to print the read_ceps arrays on the terminal
 #print read_ceps(GENRE_LIST)
+
+#change to if __name__ == "__main__" later
