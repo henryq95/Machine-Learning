@@ -24,6 +24,7 @@ for d in [DATA_DIR, CHART_DIR]:
 # Put your directory to the different music genres here
 GENRE_DIR = "C:/Users/Henry/Documents/AxonRadioMiscStorage/genres/"
 #GENRE_LIST = ["blues", "classical", "country", "disco", "hiphop", "jazz", "metal", "pop", "reggae", "rock"]
+#GENRE_LIST = ["blues", "classical", "country", "hiphop", "jazz", "metal", "pop", "rock"]
 GENRE_LIST = ["classical", "jazz", "country", "pop", "rock", "metal"]
 
 # Put your directory to the test dir here

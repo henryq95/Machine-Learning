@@ -12,6 +12,7 @@ from sklearn.metrics import precision_recall_curve, roc_curve
 from sklearn.metrics import auc
 #changed below from sklearn.cross_validation as it was deprecated
 from sklearn.model_selection import ShuffleSplit
+from sklearn.externals import joblib
 
 from sklearn.metrics import confusion_matrix
 
@@ -24,6 +25,10 @@ genre_list = GENRE_LIST
 
 
 def train_model(clf_factory, X, Y, name, plot=False):
+    """
+        Trains and saves model to disk.
+    """
+
     labels = np.unique(Y)
     #updated ShuffleSplit
     cv = ShuffleSplit(n_splits=1, test_size=0.3, random_state=None)
@@ -58,7 +63,7 @@ def train_model(clf_factory, X, Y, name, plot=False):
 
         train_errors.append(1 - train_score)
         test_errors.append(1 - test_score)
-
+    
         y_pred = clf.predict(X_test)
         cm = confusion_matrix(y_test, y_pred)
         cms.append(cm)
@@ -95,6 +100,8 @@ def train_model(clf_factory, X, Y, name, plot=False):
                np.mean(all_pr_scores), np.std(all_pr_scores))
     print("%.3f\t%.3f\t%.3f\t%.3f\t" % summary)
 
+        #save the trained model to disk
+    joblib.dump(clf, 'saved_model/model_ceps.pkl')
     return np.mean(train_errors), np.mean(test_errors), np.asarray(cms)
 
 
