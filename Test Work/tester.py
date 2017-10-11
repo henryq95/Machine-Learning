@@ -2,9 +2,12 @@ import os
 from sklearn.externals import joblib
 from ceps import read_ceps, create_ceps_test, read_ceps_test
 from utils import GENRE_LIST, GENRE_DIR
+
+
 #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 #          Please run the classifier script first
 #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
 
 def test_model_on_single_file(test_file):
     clf = joblib.load('saved_model/model_ceps.pkl')
