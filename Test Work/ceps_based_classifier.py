@@ -114,6 +114,10 @@ def create_model():
 
 if __name__ == "__main__":
     X, y = read_ceps(genre_list)
+    np.set_printoptions(threshold='nan')
+    print np.isnan(X).any()
+    X = np.nan_to_num(X)
+    print np.isnan(X).any()
 
     train_avg, test_avg, cms = train_model(
         create_model, X, y, "Log Reg CEPS", plot=True)
