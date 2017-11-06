@@ -31,7 +31,7 @@ def train_model(clf_factory, X, Y, name, plot=False):
 
     labels = np.unique(Y)
     #updated ShuffleSplit
-    cv = ShuffleSplit(n_splits=1, test_size=0.3, random_state=None)
+    cv = ShuffleSplit(n_splits=3, test_size=0.3, random_state=None)
 
     train_errors = []
     test_errors = []
@@ -115,9 +115,11 @@ def create_model():
 if __name__ == "__main__":
     X, y = read_ceps(genre_list)
     np.set_printoptions(threshold='nan')
-    print np.isnan(X).any()
-    X = np.nan_to_num(X)
-    print np.isnan(X).any()
+    print "DEBUG - X[] contains NaN? : ", np.isnan(X).any()
+    if np.isnan(X).any():
+        X = np.nan_to_num(X)
+        print "DEBUG - X[] fixed with nan_to_num"
+        print "DEBUG - X[] contains NaN?: ", np.isnan(X).any()
 
     train_avg, test_avg, cms = train_model(
         create_model, X, y, "Log Reg CEPS", plot=True)

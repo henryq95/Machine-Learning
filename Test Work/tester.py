@@ -13,8 +13,8 @@ def test_model_on_single_file(test_file):
     clf = joblib.load('saved_model/model_ceps.pkl')
     X, y = read_ceps_test(create_ceps_test(test_file)+".npy")
     probs = clf.predict_proba(X)
-    print "\t".join(str(x) for x in traverse)
-    print "\t".join(str("%.3f" % x) for x in probs[0])
+    print "   ".join(str(x) for x in traverse)
+    print "\t  ".join(str("%.3f" % x) for x in probs[0])
     probs=probs[0]
     max_prob = max(probs)
     for i,j in enumerate(probs):
@@ -23,7 +23,7 @@ def test_model_on_single_file(test_file):
     
     print max_prob_index
     predicted_genre = traverse[max_prob_index]
-    print "\n\npredicted genre = ",predicted_genre
+    print "\n\npredicted genre = ",predicted_genre,"\n--------------------"
     return predicted_genre
 
 if __name__ == "__main__":
@@ -39,10 +39,16 @@ if __name__ == "__main__":
     
 
     test_file = "test_songs/beethoven-symph5-clip.wav"
-    test_file2 = "test_songs/one.wav"
-    test_file3 = "test_songs/michael-jackson-thriller.wav"
+    test_file2 = "test_songs/metallica-masterofpuppets-clip.wav"
+    test_file3 = "test_songs/slayer-rainingblood-clip.wav"
+    test_file4 = "test_songs/britneyspears-invitation-clip.wav"
+    test_file5 = "test_songs/country-sugarland-clip.wav"
     # should predict genre as "ROCK"
     predicted_genre = test_model_on_single_file(test_file)
     predicted_genre = test_model_on_single_file(test_file2)
     predicted_genre = test_model_on_single_file(test_file3)
+    predicted_genre = test_model_on_single_file(test_file4)
+    predicted_genre = test_model_on_single_file(test_file5)
+
+
     
