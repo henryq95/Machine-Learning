@@ -23,10 +23,18 @@ for d in [DATA_DIR, CHART_DIR]:
 
 # Put your directory to the different music genres here
 GENRE_DIR = "Datasets/genres/"
+#All genres
 #GENRE_LIST = ["blues", "classical", "country", "disco", "hiphop", "jazz", "metal", "pop", "reggae", "rock"]
-GENRE_LIST = ["blues", "classical", "country", "disco", "jazz", "pop", "rock", "metal"]
+
+#Currently most genres that work
+#GENRE_LIST = ["blues", "classical", "country", "disco", "jazz", "pop", "rock", "metal"]
+
 #Adding hiphop
 #GENRE_LIST = ["blues", "classical", "country", "disco", "hiphop", "jazz", "pop", "rock", "metal"]
+
+#All except hiphop
+GENRE_LIST = ["blues", "classical", "country", "disco", "jazz", "metal", "pop", "reggae", "rock"]
+
 
 #Removed Disco
 #GENRE_LIST = ["blues", "classical", "country", "jazz", "pop", "rock", "metal"]
