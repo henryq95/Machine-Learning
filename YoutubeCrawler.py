@@ -10,6 +10,7 @@ import urllib2
 import json
 from apiclient.discovery import build
 import random, string
+import webbrowser
 
 
 DEVELOPER_KEY = "AIzaSyAt7Cfjmv0qRyTf2ipGbL3DpsKffkeLnpQ"
@@ -103,14 +104,14 @@ def youtube_search():
     videoStat = []
     for vid in flatUserVids:
         videoStat.append(youtube.videos().list(
-            part = 'status',
+            part = 'status, snippet',
             id = vid
         ).execute())
 
 
     for i in range(0, len(videoStat)):
         for stat in videoStat[i].get("items", []):
-            if stat["status"]["privacyStatus"] == "public":
+            if stat["status"]["privacyStatus"] == "public" and stat["snippet"]["categoryId"] == "10":
                 return stat["id"]
 
     #debug printing
@@ -139,7 +140,7 @@ def download_song(url):
             'preferredcodec' : 'wav',
             'preferredquality' : '192',
         }],
-        'outtmpl' : './SongBuffer/%(title)s.%(ext)s',
+        'outtmpl' : './Machine-Learning/test_songs/%(title)s.%(ext)s',
     }
 
     with youtube_dl.YoutubeDL(ydl_opts) as ydl:
@@ -149,6 +150,7 @@ if __name__ == "__main__":
     youtubeURL = 'https://www.youtube.com/watch'
     vidID = youtube_search()
     url = '?v='.join([youtubeURL, vidID])
+    webbrowser.open(url)
     download_song(url)
 
 
