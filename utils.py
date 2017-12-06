@@ -27,13 +27,13 @@ GENRE_DIR = "Datasets/genres/"
 #GENRE_LIST = ["blues", "classical", "country", "disco", "hiphop", "jazz", "metal", "pop", "reggae", "rock"]
 
 #Currently most genres that work
-#GENRE_LIST = ["blues", "classical", "country", "disco", "jazz", "pop", "rock", "metal"]
+GENRE_LIST = ["blues", "classical", "country", "disco", "jazz", "pop", "rock", "metal"]
 
 #Adding hiphop
 #GENRE_LIST = ["blues", "classical", "country", "disco", "hiphop", "jazz", "pop", "rock", "metal"]
 
 #All except hiphop
-GENRE_LIST = ["blues", "classical", "country", "disco", "jazz", "metal", "pop", "reggae", "rock"]
+#GENRE_LIST = ["blues", "classical", "country", "disco", "jazz", "metal", "pop", "reggae", "rock"]
 
 
 #Removed Disco

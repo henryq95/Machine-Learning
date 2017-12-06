@@ -2,6 +2,7 @@ import os
 from sklearn.externals import joblib
 from ceps import read_ceps, create_ceps_test, read_ceps_test
 from utils import GENRE_LIST, GENRE_DIR
+import glob
 
 
 #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -37,18 +38,8 @@ if __name__ == "__main__":
     print traverse
     print "\n"
     
-
-    test_file = "test_songs/beethoven-symph5-clip.wav"
-    test_file2 = "test_songs/metallica-masterofpuppets-clip.wav"
-    test_file3 = "test_songs/slayer-rainingblood-clip.wav"
-    test_file4 = "test_songs/britneyspears-invitation-clip.wav"
-    test_file5 = "test_songs/country-sugarland-clip.wav"
-    # should predict genre as "ROCK"
-    predicted_genre = test_model_on_single_file(test_file)
-    predicted_genre = test_model_on_single_file(test_file2)
-    predicted_genre = test_model_on_single_file(test_file3)
-    predicted_genre = test_model_on_single_file(test_file4)
-    predicted_genre = test_model_on_single_file(test_file5)
+    for fname in glob.glob('test_songs/*.wav'):
+        test_model_on_single_file(fname)
 
 
     
